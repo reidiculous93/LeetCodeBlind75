@@ -1,0 +1,14 @@
+//Given an integer array nums,
+//return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+public boolean containsDuplicate(int[] nums) {
+        HashMap<Integer, Integer> seen = new HashMap<>();
+        for (int num : nums) {
+            if (seen.containsKey(num)) {
+                return true;
+            }
+            seen.put(num, seen.getOrDefault(num, seen.size() + 1));
+        }
+        return false;
+    }
+
